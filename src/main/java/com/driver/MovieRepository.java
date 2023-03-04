@@ -20,11 +20,11 @@ public class MovieRepository {
     Map<String, List<String>> DirectorMovies = new HashMap<>();
 
     public String addMovie(Movies movies){
-        moviesMap.put(movies.name,movies);
+        moviesMap.put(movies.getName(),movies);
         return "movie added";
     }
     public String addDirector(Director director){
-        directorMap.put(director.name,director);
+        directorMap.put(director.getName(),director);
         return "director added";
     }
 
