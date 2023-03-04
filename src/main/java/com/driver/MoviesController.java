@@ -3,7 +3,6 @@ package com.driver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,8 +14,8 @@ public class MoviesController {
     MovieService movieService;
 
     @PostMapping("/add-movie")
-    public ResponseEntity<String> addMovies(@RequestBody Movies movies){
-        movieService.addMovies(movies);
+    public ResponseEntity<String> addMovies(@RequestBody Movie movie){
+        movieService.addMovies(movie);
         return new ResponseEntity<>("Movie Added success",HttpStatus.CREATED);//
     }
 
@@ -33,10 +32,10 @@ public class MoviesController {
     }
 
     @GetMapping("/get-movie-by-name/{name}")
-    public ResponseEntity<Movies> getMovieByName(@PathVariable String name){
+    public ResponseEntity<Movie> getMovieByName(@PathVariable String name){
 
-        Movies movies=movieService.getMovieByName(name);
-        return new ResponseEntity<>(movies,HttpStatus.CREATED);
+        Movie movie =movieService.getMovieByName(name);
+        return new ResponseEntity<>(movie,HttpStatus.CREATED);
     }
 
     @GetMapping("/get-director-by-name/{name}")

@@ -1,7 +1,5 @@
 package com.driver;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -9,18 +7,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static java.rmi.Naming.list;
-
 @Repository
 public class MovieRepository {
 
-    Map<String,Movies> moviesMap = new HashMap<>();
+    Map<String, Movie> moviesMap = new HashMap<>();
     Map<String,Director> directorMap = new HashMap<>();
 
     Map<String, List<String>> DirectorMovies = new HashMap<>();
 
-    public String addMovie(Movies movies){
-        moviesMap.put(movies.getName(),movies);
+    public String addMovie(Movie movie){
+        moviesMap.put(movie.getName(), movie);
         return "movie added";
     }
     public String addDirector(Director director){
@@ -46,7 +42,7 @@ public class MovieRepository {
         return "Pair added successively";
     }
 
-    public Movies getMovieByName(String name){
+    public Movie getMovieByName(String name){
         if(moviesMap.containsKey(name)) return moviesMap.get(name);
         return null;
     }

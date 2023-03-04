@@ -10,8 +10,8 @@ public class MovieService {
 
     @Autowired
     MovieRepository movieRepository;
-    public String addMovies(Movies movies){
-        return movieRepository.addMovie(movies);
+    public String addMovies(Movie movie){
+        return movieRepository.addMovie(movie);
     }
 
     public String addDirector(Director director){
@@ -22,7 +22,7 @@ public class MovieService {
         return movieRepository.addMovieDirectorPair(movie,director);
     }
 
-    public Movies getMovieByName(String name){
+    public Movie getMovieByName(String name){
         return movieRepository.getMovieByName(name);
     }
 
